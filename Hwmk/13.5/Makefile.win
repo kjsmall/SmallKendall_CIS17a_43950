@@ -1,0 +1,31 @@
+# Project: 13.5
+# Makefile created by Dev-C++ 5.10
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = 13.5implement.o 13.5main.o
+LINKOBJ  = 13.5implement.o 13.5main.o
+LIBS     = -L"C:/Users/Kendall/Desktop/C++/Dev-Cpp/MinGW64/lib" -L"C:/Users/Kendall/Desktop/C++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"C:/Users/Kendall/Desktop/C++/Dev-Cpp/MinGW64/include" -I"C:/Users/Kendall/Desktop/C++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Users/Kendall/Desktop/C++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"C:/Users/Kendall/Desktop/C++/Dev-Cpp/MinGW64/include" -I"C:/Users/Kendall/Desktop/C++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Users/Kendall/Desktop/C++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"C:/Users/Kendall/Desktop/C++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = 13.5.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+13.5implement.o: 13.5implement.cpp
+	$(CPP) -c 13.5implement.cpp -o 13.5implement.o $(CXXFLAGS)
+
+13.5main.o: 13.5main.cpp
+	$(CPP) -c 13.5main.cpp -o 13.5main.o $(CXXFLAGS)
